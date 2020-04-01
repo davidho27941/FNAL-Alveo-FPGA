@@ -1,3 +1,0 @@
-docker_run.sh
-README.md
-test.txt
