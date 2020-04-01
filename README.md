@@ -1,4 +1,6 @@
 # Top tagging model machine learning project
+## Notification
+The instruction will mainly update at https://hackmd.io/@davidho9713/r1GySKxPU.
 ## Basic concept and Environment
 ### Environment 
 1. Test environment: FNAL LPC (Ailab01 with Alveo card), AWS F1 instance, 
