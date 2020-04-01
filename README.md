@@ -9,7 +9,7 @@
 1. Please contact Burt on Slack to get the accessibility for FNAL Ailab and make sure you are in the "docker" user group to run a docker image for Vitis Ai.
 2. Use `ssh username@ailab01.fnal.gov` to access Ailab in FNAL.
 3. After getting into Ailab, type `cd Vitis-AI/`.
-4. To run a docker for Vitis-Ai, type `./docker_run.sh xilinx/vitis-ai:tools-1.0.0-gpu` to activate docker image.
+4. To run a docker for Vitis-Ai, type `./docker_run.sh xilinx/vitis-ai:tools-1.0.0-gpu` to activate the docker image.
 ### Examples
 #### Tensorflow
 1. To run a tensorflow example, please make sure you are in the docker environment. 
