@@ -1,4 +1,4 @@
-# FNAL-Alveo-FPGA
+# Top tagging model machine learning project
 ## Basic concept and Environment
 ### Environment 
 1. Test environment: FNAL LPC (Ailab01 with Alveo card), AWS F1 instance, 
@@ -23,11 +23,13 @@ head -n 500 ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-aux/val.txt > ~/CK-TOOLS/data
 ```
 4. Type `python getModels.py` to download models.
 5. There are 6 kinds of model available now.
+    1. inception_v1_baseline
+    2. inception_v4
+    3. squeezenet
+    4. ResNet-50
+    5. ResNet-101 
+    6. ResNet-152
 
-
-| inception_v1_baseline | inception_v4 | squeezenet |
-|:---------------------:|:---------------:|:----------:|
-|       ResNet-50       |   ResNet-101    | ResNet-152 |
 6. To quantize the model, use the following command:
 ```
 python run.py --quantize --model MODEL_FILE --pre_process MODEL --output_dir OUTPUT_DIR --input_nodes INPUT_NODES --output_nodes OUTPUT_NODES --input_shapes ?,?,?,? --batch_size batch_size
@@ -40,4 +42,29 @@ python run.py --validate --model MODEL_FILE --pre_process MODEL --output_dir OUT
 
 #You should change the argument to fit your model, input/outpu nodes and hyper parameters.
 ```
-8. For further example, please check the repository of Vitis-Ai.(https://github.com/Xilinx/Vitis-AI)
+8. For further example, please check the repository of Vitis-Ai.
+### Progression status
+#### Vitis-Ai
+- [x] Get the accessibility of FNAL Alveo card and Ailab.
+- [x] Get the accessibility of UCSD Alveo card.
+- [x] Debug and test error before test run.
+- [x] Test run. 
+- [ ] Try to modify the code to get learning curve and further usage.
+#### ML Suite 
+- [x] Get the accessibility of AWS f1 instance.
+- [x] Get a clone of Tom's f1 instance.
+- [ ] Debug and test error before test run.
+- [ ] Test run.
+- [ ] Try to modify the code to get learning curve and further usage.
+## ML suite on AWS f1 instance 
+### Environment setup 
+### Examples
+#### Tensorflow 
+### Progression status
+## Reference and useful link
+### Repository 
+1. Xilinx Vitis Ai: https://github.com/Xilinx/Vitis-AI
+2. Xilinx ML suite: https://github.com/Xilinx/ml-suite
+3. Tom - AWS FPGA: https://github.com/LouYu2015/aws-fpga-top-tagging-notebooks
+### Reference 
+[1] Vitis-Ai Repo: https://github.com/Xilinx/Vitis-AI/blob/master/alveo/examples/tensorflow/README.md
