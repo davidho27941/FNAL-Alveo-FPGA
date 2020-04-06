@@ -7,6 +7,11 @@ The instruction will mainly update at https://hackmd.io/@davidho9713/r1GySKxPU.
 2. FPGA plattform: Vitis-Ai by Xilinx(Ailab01), Xilinx ML suite(AWS f1 instance)
 3. DNN model: ResNet-50 
 ## Vitis-Ai on Ailab 
+### Environment 
+1. Test environment: FNAL LPC (Ailab01 with Alveo card), AWS F1 instance, 
+2. FPGA plattform: Vitis-Ai by Xilinx(Ailab01), Xilinx ML suite(AWS f1 instance)
+3. DNN model: ResNet-50 
+## Vitis-Ai on Ailab 
 ### Environment setup
 1. Please contact Burt on Slack to get the accessibility for FNAL Ailab and make sure you are in the "docker" user group to run a docker image for Vitis Ai.
 2. Use `ssh username@ailab01.fnal.gov` to access Ailab in FNAL.
@@ -44,7 +49,18 @@ python run.py --validate --model MODEL_FILE --pre_process MODEL --output_dir OUT
 
 #You should change the argument to fit your model, input/outpu nodes and hyper parameters.
 ```
-8. For further example, please check the repository of Vitis-Ai.(Xilinx Vitis Ai: https://github.com/Xilinx/Vitis-AI)
-
+8. For further example, please check the repository of Vitis-Ai.
+#### Deployment mode
+1. To run a deployment mode example, please make sure you are in the docker environment.
+2. Type conda activate vitis-ai-tensorflow to enable the virtual environment for tensorflow.
+3. Run the script `setup.sh` to get the imagnet2012 data for the test run by Collective Knowledge (CK).[1]
+4. Run the script `round_test.sh` to run a test of stream classify(you might need to change the content if we want to do different testing). 
+5. For further example, please check https://github.com/Xilinx/Vitis-AI/tree/master/alveo/examples/deployment_modes.
+## Reference and useful link
+### Repository 
+1. Xilinx Vitis-Ai: https://github.com/Xilinx/Vitis-AI
+2. Xilinx ML suite: https://github.com/Xilinx/ml-suite
+3. Tom - AWS FPGA: https://github.com/LouYu2015/aws-fpga-top-tagging-notebooks
+4. David - FNAL-Alveo-FPGA: https://github.com/davidho27941/FNAL-Alveo-FPGA
 ### Reference 
 [1] Vitis-Ai Repo: https://github.com/Xilinx/Vitis-AI/blob/master/alveo/examples/tensorflow/README.md
