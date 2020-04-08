@@ -1,0 +1,6 @@
+FPGA_process:  111.75542416822316 img/s
+FPGA_process:  71.38648495124873 img/s
+FPGA_process:  70.63745195629897 img/s
+FPGA_process:  70.04460866048247 img/s
+FPGA_process:  71.75496190592787 img/s
+FPGA_process:  70.45831119771708 img/s
