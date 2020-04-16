@@ -5,7 +5,7 @@ cond=Switch_batch_size
 
 	if [ "${2}" == "1" ]; then
 		mode1=streaming_classify
-	elif [ "2" == "2" ]; then
+	elif [ "${2}" == "2" ]; then
 		mode1=streaming_classify_fpgaonly
 	else 
 		echo "Please select a mode to run. (1 = streaming_classify, 2 = streaming_classify_fpgaonly)"
@@ -15,7 +15,7 @@ cond=Switch_batch_size
 		mode2=autoAllOpt
 	elif [ "${3}" == "2" ]; then 
 		mode2=throughput
-	elif [ "$3" == "3" ]; then
+	elif [ "${3}" == "3" ]; then
 		mode2=latency
 	else 
 		echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
@@ -42,7 +42,7 @@ elif [ "${1}" == "2" ]; then
 
 	if [ "${2}" == "1" ]; then
 		mode1=streaming_classify
-	elif [ "2" == "2" ]; then
+	elif [ "${2}" == "2" ]; then
 		mode1=streaming_classify_fpgaonly
 	else
 		echo "Please select a mode to run. (1 = streaming_classify, 2 = streaming_classify_fpgaonly)"
@@ -52,7 +52,7 @@ elif [ "${1}" == "2" ]; then
 		mode2=autoAllOpt
 	elif [ "${3}" == "2" ]; then
 		mode2=throughput
-	elif [ "$3" == "3" ]; then
+	elif [ "${3}" == "3" ]; then
 		mode2=latency
 	else
                 echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
