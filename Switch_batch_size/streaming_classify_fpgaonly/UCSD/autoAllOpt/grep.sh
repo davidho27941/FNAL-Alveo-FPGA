@@ -1,7 +1,6 @@
 #!/bin/bash
 
-grep 'FPGA_process' log.txt >> test.txt
-grep 'FPGA_process' log1.txt >> test1.txt
-grep 'FPGA_process' log2.txt >> test2.txt
-grep 'FPGA_process' log3.txt >> test3.txt
-grep 'FPGA_process' log4.txt >> test4.txt
+for i in {1..5..1}; 
+do
+	grep 'Performance' log$i.txt | cat >> result$i.txt
+done
