@@ -25,14 +25,18 @@ cond=Switch_batch_size
 	do 
 
 		start=$SECONDS
-		for i in {1..16..1};
+		for i in {2..8..2};
 		do
-			NUM=$[1 * $i]
+			NUM=$[2 * $i]
+			start_1=$SECONDS
 			./run.sh -t $mode1 -m resnet50 -s $NUM  -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt 
+			duration_1=$(( SECONDS - start_1))
+			echo $duration_1  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_test$a.txt
+			echo $duration_1
 		done
 
 		duration=$(( SECONDS - start ))
-		echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer$a.txt
+		echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_round_$a.txt
 
 		echo $duration
 	done
@@ -65,16 +69,19 @@ elif [ "${1}" == "2" ]; then
 		for i in {1..5};
 		do
 			NUM=$[4 * $i]
+			start_1=$SECONDS
 			./run.sh -t $mode1 -m resnet50 -ns $NUM  -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt
+			echo $duration_1  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_test$a.txt
+			echo $duration_1
 		done
 
 		duration=$(( SECONDS - start ))
-		echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer$a.txt
+		echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_round_$a.txt
 
 		echo $duration
 	done
 
-elif [ "${1}" == "3"]; then
+elif [ "${1}" == "3" ]; then
 	cond=Switch_num_of_preprocess_process
 
         if [ "${2}" == "1" ]; then
@@ -102,11 +109,15 @@ elif [ "${1}" == "3"]; then
                 for i in {1..5};
                 do
                         NUM=$[4 * $i]
+			start_1=$SECONDS
                         ./run.sh -t $mode1 -m resnet50 -y $NUM  -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt
-                done
+                	echo $duration_1  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_test$a.txt
+                        echo $duration_1
+		done
 
                 duration=$(( SECONDS - start ))
-                echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer$a.txt
+                echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_round_$a.txt
+
 
                 echo $duration
         done
