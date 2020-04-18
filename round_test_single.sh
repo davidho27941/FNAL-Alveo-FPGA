@@ -1,80 +1,19 @@
 #!/bin/bash
 
-if [ "${1}" == "1" ]; then 
-cond=Switch_batch_size
+echo -e "Please select a model to run single image classification.\n"
+echo -e "Option: resnet50 and googlenet_v1."
 
-	if [ "${2}" == "1" ]; then
-		mode1=streaming_classify
-	elif [ "${2}" == "2" ]; then
-		mode1=streaming_classify_fpgaonly
-	else 
-		echo "Please select a mode to run. (1 = streaming_classify, 2 = streaming_classify_fpgaonly)"
-	fi
+read -p "The model you want to test: " model
+read -p "Please input the path of log file: " logpath 
 
-	if [ "${3}" == "1" ]; then
-		mode2=autoAllOpt
-	elif [ "${3}" == "2" ]; then 
-		mode2=throughput
-	elif [ "${3}" == "3" ]; then
-		mode2=latency
-	else 
-		echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
-	fi
-
-	for a in {1..5..1};
-	do 
-
-		start=$SECONDS
-		for i in {10..60..10};
-		do
-			NUM=$[1 * $i]
-			./run.sh -t $mode1 -m resnet50 -s $NUM  -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt 
-		done
-
-		duration=$(( SECONDS - start ))
-		echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer$a.txt
-
-		echo $duration
-	done
-
-elif [ "${1}" == "2" ]; then
-	cond=Switch_num_of_stream
-
-	if [ "${2}" == "1" ]; then
-		mode1=streaming_classify
-	elif [ "${2}" == "2" ]; then
-		mode1=streaming_classify_fpgaonly
-	else
-		echo "Please select a mode to run. (1 = streaming_classify, 2 = streaming_classify_fpgaonly)"
-	fi
-
-	if [ "${3}" == "1" ]; then
-		mode2=autoAllOpt
-	elif [ "${3}" == "2" ]; then
-		mode2=throughput
-	elif [ "${3}" == "3" ]; then
-		mode2=latency
-	else
-                echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
-	fi
-
-	for a in {1..5..1};
-	do
-
-		start=$SECONDS
-		for i in {1..5};
-		do
-			NUM=$[4 * $i]
-			./run.sh -t $mode1 -m resnet50 -ns $NUM  -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt
-		done
-
-		duration=$(( SECONDS - start ))
-		echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer$a.txt
-
-		echo $duration
-	done
-
-else
-echo "Please select a condition to run. (1 = Switch_batch_size, 2 = Switch_num_of_stream)"
-fi
-
+echo -e "Using ${model} doing round test job."
+for i in {1..5..1}; 
+do
+	start_1=$SECONDS
+	./run.sh -t test_classify ${model} | cat >>  ${logpath}/log.txt
+	duration_1=$(( SECONDS - start_1))
+	echo $duration_1  >> ${logpath}/timer_per_each_test$a.txt
+	echo -e "Duration: ${duration_1}s"
+done
+echo "Log file has been sent to ${logpath}/"
+echo -e "Finish! \a"
