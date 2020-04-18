@@ -13,7 +13,12 @@ fi
 
 if [ "${1}" == "1" ]; then 
 	cond=Switch_batch_size
-	mkdir ${logpath}/${cond}
+	if [ -d "${logpath}/${cond}" ]; then 
+		echo -e "File ${logpath}/${cond} exist." 
+	else
+		mkdir ${logpath}/${cond}
+		echo -e "File ${logpath}/${cond} has been created."
+	fi
 
 	if [ "${2}" == "1" ]; then
 		mode1=streaming_classify
@@ -35,7 +40,7 @@ if [ "${1}" == "1" ]; then
 	
 	if [ -d "${logpath}/${cond}/${mode1}" ]; then 
 	
-		echo "${logpath}/${cond}/${mode1} exist."
+		echo "File {logpath}/${cond}/${mode1} exist."
 	else 
 		mkdir ${logpath}/${cond}/${mode1}
 		echo "File ${logpath}/${cond}/${mode1} has been created."
@@ -75,7 +80,12 @@ if [ "${1}" == "1" ]; then
 
 elif [ "${1}" == "2" ]; then
 	cond=Switch_num_of_stream
-	mkdir ${logpath}/${cond}
+	if [ -d "${logpath}/${cond}" ]; then
+                echo -e "File ${logpath}/${cond} exist." 
+        else
+                mkdir ${logpath}/${cond}
+                echo -e "File ${logpath}/${cond} has been created."
+        fi
 
 	if [ "${2}" == "1" ]; then
 		mode1=streaming_classify
@@ -96,7 +106,7 @@ elif [ "${1}" == "2" ]; then
 	fi
 
 	if [ -d "${logpath}/${cond}/${mode1}" ]; then
-                echo "${logpath}/${cond}/${mode1} exist."
+                echo "File ${logpath}/${cond}/${mode1} exist."
         else
                 mkdir ${logpath}/${cond}/${mode1}
                 echo "File ${logpath}/${cond}/${mode1} has been created."
@@ -138,7 +148,13 @@ elif [ "${1}" == "2" ]; then
 
 elif [ "${1}" == "3" ]; then
 	cond=Switch_num_of_preprocess_process
-	mkdir ${logpath}/${cond}
+	if [ -d "${logpath}/${cond}" ]; then
+                echo -e "File ${logpath}/${cond} exist." 
+        else
+                mkdir ${logpath}/${cond}
+                echo -e "File ${logpath}/${cond} has been created."
+        fi
+
         
 	if [ "${2}" == "1" ]; then
                 mode1=streaming_classify
@@ -159,7 +175,7 @@ elif [ "${1}" == "3" ]; then
         fi
 
 	if [ -d "${logpath}/${cond}/${mode1}" ]; then
-                echo "${logpath}/${cond}/${mode1} exist."
+                echo "File ${logpath}/${cond}/${mode1} exist."
         else
                 mkdir ${logpath}/${cond}/${mode1}
                 echo "File ${logpath}/${cond}/${mode1} has been created."
