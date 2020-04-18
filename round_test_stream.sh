@@ -1,7 +1,18 @@
 #!/bin/bash
 
+read -p "Please input the main path you want to save: " logpath
+
+if [ -d "${logpath}" ]; then 
+	echo "Directory ${logpath} exists."
+else
+    echo "Directory ${logpath} does not exists."
+    mkdir ${logpath}
+    echo "Directory ${logpath} has been created!"
+fi
+
 if [ "${1}" == "1" ]; then 
-cond=Switch_batch_size
+	cond=Switch_batch_size
+	mkdir ${logpath}/${cond}
 
 	if [ "${2}" == "1" ]; then
 		mode1=streaming_classify
@@ -21,28 +32,34 @@ cond=Switch_batch_size
 		echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
 	fi
 
+	mkdir ${logpath}/${cond}/${mode1}
+	mkdir ${logpath}/${cond}/${mode1}/${mode2}
+	
+	echo -e "Test start: Testing deployment modes with ${mode1} and ${mode2}"
+
 	for a in {1..5..1};
 	do 
-
+		echo "Round $a start."
 		start=$SECONDS
 		for i in {2..8..2};
 		do
 			NUM=$[2 * $i]
 			start_1=$SECONDS
-			./run.sh -t $mode1 -m resnet50 -s $NUM  -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt 
-			duration_1=$(( SECONDS - start_1))
-			echo $duration_1  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_test$a.txt
-			echo $duration_1
+			./run.sh -t $mode1 -m resnet50 -s $NUM -ns 1 -y 1 -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt 
+			duration_1=$(( SECONDS - start_1 ))
+			echo $duration_1  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_test$a.txt
+			echo "Druation: ${duration_1}s"
 		done
 
 		duration=$(( SECONDS - start ))
-		echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_round_$a.txt
-
-		echo $duration
+		echo $duration  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_round_$a.txt
+		echo "Round Duration: ${duration}s"
 	done
+	echo "Finish! Log file has been sent to ${logpath}/${cond}/${mode1}/${mode2}."
 
 elif [ "${1}" == "2" ]; then
 	cond=Switch_num_of_stream
+	mkdir ${logpath}/${cond}
 
 	if [ "${2}" == "1" ]; then
 		mode1=streaming_classify
@@ -62,29 +79,38 @@ elif [ "${1}" == "2" ]; then
                 echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
 	fi
 
+	mkdir ${logpath}/${cond}/${mode1}
+	mkdir ${logpath}/${cond}/${mode1}/${mode2}
+
+	echo -e "Test start: Testing deployment modes with ${mode1} and ${mode2}"
+	
 	for a in {1..5..1};
 	do
 
+		echo "Round $a start."
 		start=$SECONDS
 		for i in {1..5};
 		do
 			NUM=$[4 * $i]
 			start_1=$SECONDS
-			./run.sh -t $mode1 -m resnet50 -ns $NUM  -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt
-			echo $duration_1  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_test$a.txt
-			echo $duration_1
+			./run.sh -t $mode1 -m resnet50 -ns $NUM -s 1 -y 1 -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt
+			duration_1=$(( SECONDS - start_1 ))
+			echo $duration_1  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_test$a.txt
+			echo "Druation: ${duration_1}s"
 		done
 
 		duration=$(( SECONDS - start ))
-		echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_round_$a.txt
+		echo $duration  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_round_$a.txt
+		echo "Round Duration: ${duration}s"
 
-		echo $duration
 	done
+	echo "Finish! Log file has been sent to ${logpath}/${cond}/${mode1}/${mode2}."
 
 elif [ "${1}" == "3" ]; then
 	cond=Switch_num_of_preprocess_process
-
-        if [ "${2}" == "1" ]; then
+	mkdir ${logpath}/${cond}
+        
+	if [ "${2}" == "1" ]; then
                 mode1=streaming_classify
         elif [ "${2}" == "2" ]; then
                 mode1=streaming_classify_fpgaonly
@@ -102,26 +128,31 @@ elif [ "${1}" == "3" ]; then
                 echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
         fi
 
-        for a in {1..5..1};
+	mkdir ${logpath}/${cond}/${mode1}
+	mkdir ${logpath}/${cond}/${mode1}/${mode2}
+	
+	echo -e "Test start: Testing deployment modes with ${mode1} and ${mode2}"
+
+	for a in {1..5..1};
         do
 
+		echo "Round $a start."
                 start=$SECONDS
                 for i in {1..5};
                 do
                         NUM=$[4 * $i]
 			start_1=$SECONDS
-                        ./run.sh -t $mode1 -m resnet50 -y $NUM  -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt
-                	echo $duration_1  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_test$a.txt
-                        echo $duration_1
+                        ./run.sh -t $mode1 -m resnet50 -y $NUM -ns 1 -s 1 -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt
+                	duration_1=$(( SECONDS - start_1 ))
+			echo $duration_1  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_test$a.txt
+                        echo "Druation: ${duration_1}s"
 		done
 
                 duration=$(( SECONDS - start ))
-                echo $duration  >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/timer_per_each_round_$a.txt
-
-
-                echo $duration
+                echo $duration  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_round_$a.txt
+		echo "Round Duration: ${duration}s"
         done
-
+	echo "Finish! Log file has been sent to ${logpath}/${cond}/${mode1}/${mode2}."
 else
 echo "Please select a condition to run. (1 = Switch_batch_size, 2 = Switch_num_of_stream, 3= Switch_num_of_preprocess_process.)"
 fi
