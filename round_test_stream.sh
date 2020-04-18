@@ -10,6 +10,7 @@ else
     echo "Directory ${logpath} has been created!"
 fi
 
+
 if [ "${1}" == "1" ]; then 
 	cond=Switch_batch_size
 	mkdir ${logpath}/${cond}
@@ -31,14 +32,28 @@ if [ "${1}" == "1" ]; then
 	else 
 		echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
 	fi
-
-	mkdir ${logpath}/${cond}/${mode1}
-	mkdir ${logpath}/${cond}/${mode1}/${mode2}
 	
+	if [ -d "${logpath}/${cond}/${mode1}" ]; then 
+	
+		echo "${logpath}/${cond}/${mode1} exist."
+	else 
+		mkdir ${logpath}/${cond}/${mode1}
+		echo "File ${logpath}/${cond}/${mode1} has been created."
+	fi	
+	
+	if [ -d "${logpath}/${cond}/${mode1}/${mode2}" ]; then
+		echo "File ${logpath}/${cond}/${mode1}/${mode2} exist."
+	else	
+		mkdir ${logpath}/${cond}/${mode1}/${mode2}
+		echo "File ${logpath}/${cond}/${mode1}/${mode2} has been created."
+	fi
+	
+	echo -e "+----------------------------------------------------------------+"
 	echo -e "Test start: Testing deployment modes with ${mode1} and ${mode2}"
 
 	for a in {1..5..1};
 	do 
+		echo -e "+----------------------------------------------------------------+"
 		echo "Round $a start."
 		start=$SECONDS
 		for i in {2..8..2};
@@ -54,6 +69,7 @@ if [ "${1}" == "1" ]; then
 		duration=$(( SECONDS - start ))
 		echo $duration  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_round_$a.txt
 		echo "Round Duration: ${duration}s"
+		echo -e "+----------------------------------------------------------------+"
 	done
 	echo "Finish! Log file has been sent to ${logpath}/${cond}/${mode1}/${mode2}."
 
@@ -79,14 +95,27 @@ elif [ "${1}" == "2" ]; then
                 echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
 	fi
 
-	mkdir ${logpath}/${cond}/${mode1}
-	mkdir ${logpath}/${cond}/${mode1}/${mode2}
+	if [ -d "${logpath}/${cond}/${mode1}" ]; then
+                echo "${logpath}/${cond}/${mode1} exist."
+        else
+                mkdir ${logpath}/${cond}/${mode1}
+                echo "File ${logpath}/${cond}/${mode1} has been created."
+	fi
+        
+        if [ -d "${logpath}/${cond}/${mode1}/${mode2}" ]; then
+                echo "File ${logpath}/${cond}/${mode1}/${mode2} exist."
+        else    
+                mkdir ${logpath}/${cond}/${mode1}/${mode2}
+                echo "File ${logpath}/${cond}/${mode1}/${mode2} has been created."
+	fi
 
+	echo -e "+----------------------------------------------------------------+"
 	echo -e "Test start: Testing deployment modes with ${mode1} and ${mode2}"
 	
 	for a in {1..5..1};
 	do
 
+		echo -e "+----------------------------------------------------------------+"
 		echo "Round $a start."
 		start=$SECONDS
 		for i in {1..5};
@@ -102,6 +131,7 @@ elif [ "${1}" == "2" ]; then
 		duration=$(( SECONDS - start ))
 		echo $duration  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_round_$a.txt
 		echo "Round Duration: ${duration}s"
+		echo -e "+----------------------------------------------------------------+"
 
 	done
 	echo "Finish! Log file has been sent to ${logpath}/${cond}/${mode1}/${mode2}."
@@ -128,14 +158,28 @@ elif [ "${1}" == "3" ]; then
                 echo "Please select a mode to test.(1 = autoAllOpt, 2 = throughput, 3 = latency )"
         fi
 
-	mkdir ${logpath}/${cond}/${mode1}
-	mkdir ${logpath}/${cond}/${mode1}/${mode2}
+	if [ -d "${logpath}/${cond}/${mode1}" ]; then
+                echo "${logpath}/${cond}/${mode1} exist."
+        else
+                mkdir ${logpath}/${cond}/${mode1}
+                echo "File ${logpath}/${cond}/${mode1} has been created."
+	fi
+        
+        if [ -d "${logpath}/${cond}/${mode1}/${mode2}" ]; then
+                echo "File ${logpath}/${cond}/${mode1}/${mode2} exist."
+        else    
+                mkdir ${logpath}/${cond}/${mode1}/${mode2}
+                echo "File ${logpath}/${cond}/${mode1}/${mode2} has been created."
+	fi
+
 	
+	echo -e "+----------------------------------------------------------------+"
 	echo -e "Test start: Testing deployment modes with ${mode1} and ${mode2}"
 
 	for a in {1..5..1};
         do
 
+		echo -e "+----------------------------------------------------------------+"
 		echo "Round $a start."
                 start=$SECONDS
                 for i in {1..5};
@@ -151,6 +195,7 @@ elif [ "${1}" == "3" ]; then
                 duration=$(( SECONDS - start ))
                 echo $duration  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_round_$a.txt
 		echo "Round Duration: ${duration}s"
+		echo -e "+----------------------------------------------------------------+"
         done
 	echo "Finish! Log file has been sent to ${logpath}/${cond}/${mode1}/${mode2}."
 else
