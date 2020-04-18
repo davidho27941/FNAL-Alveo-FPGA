@@ -10,7 +10,6 @@ else
     echo "Directory ${logpath} has been created!"
 fi
 
-
 if [ "${1}" == "1" ]; then 
 	cond=Switch_batch_size
 	if [ -d "${logpath}/${cond}" ]; then 
@@ -65,7 +64,7 @@ if [ "${1}" == "1" ]; then
 		do
 			NUM=$[2 * $i]
 			start_1=$SECONDS
-			./run.sh -t $mode1 -m resnet50 -s $NUM -ns 1 -y 1 -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt 
+			./run.sh -t $mode1 -m resnet50 -s $NUM -ns 1 -y 1 -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> ${logpath}/${cond}/${mode1}/${mode2}/log$a.txt 
 			duration_1=$(( SECONDS - start_1 ))
 			echo $duration_1  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_test$a.txt
 			echo "Druation: ${duration_1}s"
@@ -132,7 +131,7 @@ elif [ "${1}" == "2" ]; then
 		do
 			NUM=$[4 * $i]
 			start_1=$SECONDS
-			./run.sh -t $mode1 -m resnet50 -ns $NUM -s 1 -y 1 -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt
+			./run.sh -t $mode1 -m resnet50 -ns $NUM -s 1 -y 1 -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> ${logpath}/${cond}/${mode1}/${mode2}/log$a.txt
 			duration_1=$(( SECONDS - start_1 ))
 			echo $duration_1  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_test$a.txt
 			echo "Druation: ${duration_1}s"
@@ -202,7 +201,7 @@ elif [ "${1}" == "3" ]; then
                 do
                         NUM=$[4 * $i]
 			start_1=$SECONDS
-                        ./run.sh -t $mode1 -m resnet50 -y $NUM -ns 1 -s 1 -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> FNAL-Alveo-FPGA/$cond/$mode1/UCSD/$mode2/log$a.txt
+                        ./run.sh -t $mode1 -m resnet50 -y $NUM -ns 1 -s 1 -c $mode2 -d $HOME/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min | cat >> ${logpath}/${cond}/${mode1}/${mode2}/log$a.txt
                 	duration_1=$(( SECONDS - start_1 ))
 			echo $duration_1  >> ${logpath}/${cond}/${mode1}/${mode2}/timer_per_each_test$a.txt
                         echo "Druation: ${duration_1}s"
