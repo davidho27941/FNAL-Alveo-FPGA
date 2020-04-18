@@ -218,3 +218,877 @@ Path /tmp/vitis-davidho/25805/weights.h5 is a file.
 Loading weights/bias/quant_params to FPGA...
 Total Images: 512 
 Performance: 0.00440924 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 4 --vitis_rundir /tmp/vitis-davidho/27761 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[4, 3, 224, 224], (4, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[4, 2048, 1, 1], (4, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 1173
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/27761/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 500 
+Performance: 0.00225974 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 8 --vitis_rundir /tmp/vitis-davidho/27889 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[8, 3, 224, 224], (8, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[8, 2048, 1, 1], (8, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 1174
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/27889/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 504 
+Performance: 0.00227773 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 12 --vitis_rundir /tmp/vitis-davidho/28017 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[12, 3, 224, 224], (12, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[12, 2048, 1, 1], (12, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 1175
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/28017/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 504 
+Performance: 0.00227765 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 16 --vitis_rundir /tmp/vitis-davidho/28145 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[16, 3, 224, 224], (16, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[16, 2048, 1, 1], (16, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 1176
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/28145/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 512 
+Performance: 0.0023137 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 4 --vitis_rundir /tmp/vitis-davidho/1119 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[4, 3, 224, 224], (4, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[4, 2048, 1, 1], (4, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 11
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/1119/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 500 
+Performance: 0.00224892 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 8 --vitis_rundir /tmp/vitis-davidho/1247 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[8, 3, 224, 224], (8, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[8, 2048, 1, 1], (8, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 12
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/1247/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 504 
+Performance: 0.00226684 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 12 --vitis_rundir /tmp/vitis-davidho/1375 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[12, 3, 224, 224], (12, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[12, 2048, 1, 1], (12, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 13
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/1375/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 504 
+Performance: 0.00226676 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 16 --vitis_rundir /tmp/vitis-davidho/1503 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[16, 3, 224, 224], (16, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[16, 2048, 1, 1], (16, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 14
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/1503/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 512 
+Performance: 0.00230266 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 4 --vitis_rundir /tmp/vitis-davidho/7706 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[4, 3, 224, 224], (4, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[4, 2048, 1, 1], (4, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 331
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/7706/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 500 
+Performance: 0.00216206 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 8 --vitis_rundir /tmp/vitis-davidho/7834 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[8, 3, 224, 224], (8, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[8, 2048, 1, 1], (8, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 332
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/7834/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 504 
+Performance: 0.00217929 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 12 --vitis_rundir /tmp/vitis-davidho/7962 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[12, 3, 224, 224], (12, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[12, 2048, 1, 1], (12, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 333
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/7962/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 504 
+Performance: 0.00217922 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 16 --vitis_rundir /tmp/vitis-davidho/8090 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[16, 3, 224, 224], (16, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[16, 2048, 1, 1], (16, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 334
+valid: 1
+
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 4 --vitis_rundir /tmp/vitis-davidho/34100 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[4, 3, 224, 224], (4, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[4, 2048, 1, 1], (4, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 532
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/34100/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 500 
+Performance: 0.00213885 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 8 --vitis_rundir /tmp/vitis-davidho/34228 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[8, 3, 224, 224], (8, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[8, 2048, 1, 1], (8, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 533
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/34228/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 504 
+Performance: 0.00215589 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 12 --vitis_rundir /tmp/vitis-davidho/34356 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[12, 3, 224, 224], (12, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[12, 2048, 1, 1], (12, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 534
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/34356/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 504 
+Performance: 0.00215582 images/s
+------------------
+Using VAI_ALVEO_ROOT
+------------------
+/workspace/alveo
+
+---------------------
+Verifying XILINX_XRM
+---------------------
+---------------------
+Using LD_LIBRARY_PATH
+---------------------
+
+-------------------
+Using LIBXDNN_PATH
+-------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/lib/libxfdnn.so
+
+-------------------
+PYTHONPATH
+-------------------
+/opt/vitis_ai/compiler
+
+---------------------
+Verifying XILINX_XRT
+---------------------
+XILINX_XRT      : /opt/xilinx/xrt
+PATH            : /opt/xilinx/xrt/bin:/opt/vitis_ai/conda/envs/vitis-ai-tensorflow/bin:/opt/vitis_ai/conda/condabin:/opt/vitis_ai/conda/bin:/opt/vitis_ai/utility:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH : /opt/xilinx/xrt/lib:
+PYTHONPATH     : /opt/xilinx/xrt/python:/opt/vitis_ai/compiler
+--- Using System XCLBIN ---
+Running:
+ Test: streaming_classify_fpgaonly
+ Model: resnet50
+ Xclbin: /opt/xilinx/overlaybins/xdnnv3
+ Accelerator: 0
+
+python mp_classify.py --xclbin /opt/xilinx/overlaybins/xdnnv3 --netcfg ./data/resnet50_8b_latency.json --weights ./data/resnet50_data.h5 --labels /workspace/alveo/examples/deployment_modes/synset_words.txt --quantizecfg ./data/resnet50_8b_xdnnv3.json --img_input_scale 1.0 --batch_sz 16 --vitis_rundir /tmp/vitis-davidho/34484 --benchmarkmode 1 --numstream 1 --images /home/davidho/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min --numprepproc 1
+Creating SharedMemoryQueue trans
+Creating Shared Memory with buf_shape_list = [[16, 3, 224, 224], (16, 4)]
+Creating SharedMemoryQueue output
+Creating Shared Memory with buf_shape_list = [[16, 2048, 1, 1], (16, 4)]
+-------------------
+Speaking to Butler 
+Response from Butler is: 
+errCode: errCode: 0
+errCode String: SUCCESS
+myHandle: 535
+valid: 1
+
+[XDNN] loading xclbin settings from /opt/xilinx/overlaybins/xdnnv3/xdnn_v3_96x16_4pe_8b_9mb_bank0123_2.xclbin.json
+[XDNN] using custom DDR banks 0,1,2,3
+Path /tmp/vitis-davidho/34484/weights.h5 is a file.
+Loading weights/bias/quant_params to FPGA...
+Total Images: 512 
+Performance: 0.00218997 images/s
